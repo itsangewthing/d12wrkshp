@@ -1,57 +1,46 @@
 package sg.edu.nus.iss.day12wkshp;
-
-<<<<<<< HEAD
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestMapping;
-=======
-import java.util.ArrayList;
-import java.util.List;
 
-import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
->>>>>>> develop
-
+import java.util.*;
+import java.lang.Integer;
+import java.lang.Math;
 
 @Controller
 public class WorkshopController {
-    
-    @RequestMapping(path={"/workshop"})
+
+    @RequestMapping(path = { "/workshop" })
     public String test() {
         return "workshop";
     }
-<<<<<<< HEAD
-=======
 
-    @RequestMapping(path={"/processNumber"})
+    @RequestMapping(path = { "/processNumber" })
     public String testResults(
-        @RequestParam(name="inputNumber", defaultValue="1") Integer unit, Model model){
+            @RequestParam(name = "inputNumber", defaultValue = "1") Integer unit,
+            Model model) {
 
-            List<Integer> lstInt = new ArrayList<>();
-            int loopValue = Integer.parseInt(unit.toString());
+        List<Integer> lstInt = new ArrayList<>();
+        int loopValue = Integer.parseInt(unit.toString());
 
-            int loop = 1;
-            while (loop <= loopValue) {
-                int result = (int) (Math.random() * (loopValue) + 1);    
-                
-                //to check if the # is duplicated, it wont be added.
-                if(!lstInt.contains(Integer.valueOf(result))){
-                    lstInt.add(Integer.valueOf(result));
-                    loop++;
-                }
+        int loop = 1;
+        while (loop <= loopValue) {
+
+            int result = (int) ((Math.random() * loopValue) + 1);
+
+            if (!lstInt.contains(Integer.valueOf(result))) {
+                lstInt.add(Integer.valueOf(result));
+                loop++;
             }
-
-            for (int i = 0; i < lstInt.size(); i++) {
-                System.out.print("> " + lstInt.get(i));
-                System.out.println();
-            }
-
-            model.addAttribute("numbers", lstInt);
-
-            return "workshopresult";
         }
-        
-    
->>>>>>> develop
+
+        for (int i = 0; i < lstInt.size(); i++) {
+            System.out.print("==> " + lstInt.get(i));
+            System.out.println();
+        }
+
+        model.addAttribute("numbers", lstInt);
+
+        return "workshopresult";
+    }
 }
