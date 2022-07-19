@@ -30,6 +30,15 @@ public class CartService {
         itm.setQuantity(8);
         lstItems.add(itm);
         
+        itm = new Item();
+        itm.setItemName("LV Wallet");
+        itm.setQuantity(12);
+        lstItems.add(itm);
+
+        itm = new Item();
+        itm.setItemName("Phillip Plein Clutch");
+        itm.setQuantity(5);
+        lstItems.add(itm);
         
         return lstItems;
 

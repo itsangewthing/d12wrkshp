@@ -7,7 +7,7 @@ public class Item {
 
     public String getItemName() {return itemName;}
     public void setItemName(String n){ itemName =n;}
-    public Integer setQuantity() { return quantity;}
+    public Integer getQuantity() { return quantity;}
     public void setQuantity(Integer i) {quantity = i;}
-    
+
 }
